@@ -3,15 +3,20 @@
 #include "../include/MusicBox.h"
 
 MusicBox::MusicBox() {
+    printf("mbtest1\n");
     audioApi = new AudioAPI(FRAMES_PER_BUFFER, 44100.0);
+    printf("mbtest2\n");
     blockSize = audioApi->bufferSize;
+    printf("mbtest3\n");
     isRunning = false;
     playbackKeys = true;
     instruments.push_back(new Instrument(blockSize));
+    printf("mbtest4\n");
     blocksReadyToOutput = 0;
     outputFile = nullptr;
     timeStep = 1.0 / 44100.0;
     globalTime = 0.0;
+    printf("mbtest5\n");
     tunePiano();
 }
 
