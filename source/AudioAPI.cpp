@@ -14,10 +14,15 @@ PaError AudioAPI::init(int bufferSize, double sampleRate)
     err = Pa_Initialize();
     printf("aatest2\n");
     if( err != paNoError ) goto error;
+    printf("aatest3\n");
 
     out_dev_ndx = getPulseDeviceId();
+    printf("aatest4\n");
+
 
     in_dev_ndx = Pa_GetDefaultInputDevice();
+    printf("aatest2\n");
+
     if (in_dev_ndx >= 0 && inLatency < 0) {
         inLatency = Pa_GetDeviceInfo(in_dev_ndx )->defaultLowInputLatency;
         if (inLatency <= 0) inLatency = 0.2;
@@ -38,6 +43,7 @@ PaError AudioAPI::init(int bufferSize, double sampleRate)
     outParams.suggestedLatency = outLatency;
     outParams.hostApiSpecificStreamInfo = nullptr;
 
+    printf("aatest5\n");
 
     err = Pa_OpenStream(
             &stream,
@@ -51,6 +57,7 @@ PaError AudioAPI::init(int bufferSize, double sampleRate)
     if( err != paNoError ) goto error;
     err = Pa_StartStream( stream );
     if( err != paNoError ) goto error;
+    printf("aatest6\n");
 
     return err;
 
