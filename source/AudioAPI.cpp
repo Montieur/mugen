@@ -16,8 +16,11 @@ PaError AudioAPI::init(int bufferSize, double sampleRate)
     if( err != paNoError ) goto error;
     printf("aatest3\n");
 
-    out_dev_ndx = getPulseDeviceId();
-    printf("aatest4\n");
+    listOutputDevices();
+
+//    out_dev_ndx = getPulseDeviceId();
+    out_dev_ndx = Pa_GetDefaultOutputDevice();
+    printf("aatest4 device index %d\n", out_dev_ndx);
 
 
     in_dev_ndx = Pa_GetDefaultInputDevice();
