@@ -55,7 +55,7 @@ PaError AudioAPI::init(int bufferSize, double sampleRate)
     return err;
 
     error:
-    std::cout << "An error occured while initializing PortAudio - " << Pa_GetErrorText( err );
+    std::cout << "An error occured while initializing PortAudio - " << printf("%s\n", Pa_GetErrorText( err ));
     Pa_Terminate();
     return err;
 }
