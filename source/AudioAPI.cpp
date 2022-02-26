@@ -59,10 +59,13 @@ PaError AudioAPI::init(int bufferSize, double sampleRate)
             paNoFlag,
             nullptr,
             nullptr);
+    printf("aatest7\n");
     if( err != paNoError ) goto error;
+    printf("aatest8\n");
     err = Pa_StartStream( stream );
+    printf("aatest9\n");
     if( err != paNoError ) goto error;
-    printf("aatest6\n");
+    printf("aatest10\n");
 
     return err;
 
