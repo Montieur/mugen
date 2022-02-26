@@ -9,8 +9,10 @@ PaError AudioAPI::init(int bufferSize, double sampleRate)
 
     this->bufferSize = bufferSize;
     this->sampleRate = sampleRate;
+    printf("aatest1\n");
 
     err = Pa_Initialize();
+    printf("aatest2\n");
     if( err != paNoError ) goto error;
 
     out_dev_ndx = getPulseDeviceId();
