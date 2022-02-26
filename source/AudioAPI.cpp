@@ -21,29 +21,34 @@ PaError AudioAPI::init(int bufferSize, double sampleRate)
 
 
     in_dev_ndx = Pa_GetDefaultInputDevice();
-    printf("aatest2\n");
+    printf("aatest5\n");
 
     if (in_dev_ndx >= 0 && inLatency < 0) {
         inLatency = Pa_GetDeviceInfo(in_dev_ndx )->defaultLowInputLatency;
         if (inLatency <= 0) inLatency = 0.2;
     }
+    printf("aatest6\n");
+
     inParams.device = in_dev_ndx;
     inParams.channelCount = channels;
     inParams.sampleFormat = SAMPLE_TYPE;
     inParams.suggestedLatency = inLatency;
     inParams.hostApiSpecificStreamInfo = nullptr;
+    printf("aatest7\n");
 
     if (out_dev_ndx >=0 && outLatency < 0) {
         outLatency = Pa_GetDeviceInfo(out_dev_ndx )->defaultLowOutputLatency;
         if (outLatency <= 0) outLatency = 0.2;
     }
+    printf("aatest8\n");
+
     outParams.device = out_dev_ndx;
     outParams.channelCount = channels;
     outParams.sampleFormat = SAMPLE_TYPE;
     outParams.suggestedLatency = outLatency;
     outParams.hostApiSpecificStreamInfo = nullptr;
 
-    printf("aatest5\n");
+    printf("aatest7\n");
 
     err = Pa_OpenStream(
             &stream,
