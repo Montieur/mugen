@@ -38,7 +38,7 @@ void MainWindow::initSDL() {
         smallFont = TTF_OpenFont(fontPath.c_str(), 20);
         tinyFont = TTF_OpenFont(fontPath.c_str(), 16);
         if (mainFont == nullptr) {
-            printf("Failed to load the font\n");
+            printf("Failed to load the font: %s\n", SDL_GetError());
         }
     }
 }
